@@ -65,3 +65,12 @@ cp .env.example .env
 # Edita .env y rellena tu API key y session ID único
 npm install
 npm start
+```
+
+## Comunidad
+Ejemplo de mensaje para el canal de la comunidad:
+```txt
+Promo Verano: 15% en limpieza facial durante junio.
+Depilación Pack: Compra 4 sesiones, recibe 1 gratis.
+Mes de la Juventud: Descuento en ácido hialurónico.
+```
