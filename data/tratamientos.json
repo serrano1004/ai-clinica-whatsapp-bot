@@ -1,10 +1,62 @@
 [
   {
-    "nombre": "Radiofrecuencia facial",
-    "descripcion": "Reafirma la piel y estimula la producción de colágeno."
+    "nombre": "Tratamiento del Acné y marcas de acné",
+    "descripcion": "Reduce brotes, mejora textura y difumina marcas con tecnología médica en Clínica Aroma Benalmádena. Protocolo personalizado adaptado a cada tipo de piel."
   },
   {
-    "nombre": "Depilación láser",
-    "descripcion": "Eliminación duradera del vello con tecnología láser."
+    "nombre": "Limpieza Carbon peel en Benalmádena",
+    "descripcion": "Limpieza facial con láser y carbono activo. Reduce poros, ilumina y renueva tu piel en Clínica Aroma Benalmádena, Málaga"
+  },
+  {
+    "nombre": "Diagnóstico facial avanzado",
+    "descripcion": "Detecta signos de envejecimiento, manchas, poros dilatados, arrugas o daños solares con el diagnóstico facial avanzado en Clínica Aroma Benalmádena."
+  },
+  {
+    "nombre": "Rejuvenecimiento facial Alma Q Benalmádena",
+    "descripcion": "Rejuvenece tu piel sin cirugía con el protocolo Alma Q. Tratamiento facial integral en Clínica Aroma Benalmádena. Resultados visibles progresivos"
+  },
+  {
+    "nombre": "Tratamiento de Carboxiterapia en Benalmádena",
+    "descripcion": "Tratamiento de carboxiterapia corporal para mejorar la celulitis, reducir grasa localizada y reafirmar la piel sin liposucción en Benalmádena."
+  },
+  {
+    "nombre": "Tratar Cicatrices en Benalmádena",
+    "descripcion": "Mejora cicatrices de acné, quirúrgicas y traumáticas con láser CO₂ en Clínica Aroma Benalmádena. Tratamiento médico con resultados visibles."
+  },
+  {
+    "nombre": "Depilación láser medica en Benalmádena",
+    "descripcion": "Elimina el vello con precisión y seguridad en Clínica Aroma Benalmádena. Depilación láser médica con Soprano Titanium, eficaz y apta para todas las pieles."
+  },
+  {
+    "nombre": "Electroestimulación muscular SlimUp",
+    "descripcion": "Tonifica, gana músculo y reduce grasa sin cirugía con electroestimulación SlimUP en Clínica Aroma Benalmádena. Tratamiento efectivo para la flacidez. "
+  },
+  {
+    "nombre": "Tratar Estrías",
+    "descripcion": "Mejora cicatrices de acné, quirúrgicas y traumáticas con láser CO₂ en Clínica Aroma Benalmádena. Tratamiento médico con resultados visibles."
+  },
+  {
+    "nombre": "Carboxiterapia capilar Benalmádena, Málaga",
+    "descripcion": "Frena la caida del cabello y recupera la densidad capilar en Benalmádena. Tratamiento médico seguro y personalizado en Clínica Aroma. "
+  },
+  {
+    "nombre": "Regeneración Capilar en Benalmádena",
+    "descripcion": "¿Te preocupa la caída del cabello? Descubre el tratamiento médico con láser diodo, sin agujas ni cirugía para frenar la caída y estimular el crecimiento."
+  },
+  {
+    "nombre": "Drenaje linfático en Benalmádena, Málaga",
+    "descripcion": "Reduce inflamación y/o mejora la recuperación tras una cirugía estética con el Drenaje linfático . Realizado por fisioterapeuta titulada en Clínica Aroma ."
+  },
+  {
+    "nombre": "Maderoterapia en Benalmádena",
+    "descripcion": "Remodela tu cuerpo, mejora la firmeza y reduce la celulitis con la maderoterapia en Benalmádena. Realizado por fisioterapeuta titulada en Clínica Aroma"
+  },
+  {
+    "nombre": "Masaje Kobido en Benalmádena",
+    "descripcion": "Mejora la firmeza y luminosidad facial con el masaje Kobido en Benalmádena, realizado por fisioterapeuta titulada. Técnica ancestral en Clínica Aroma."
+  },
+  {
+    "nombre": "Vitaminas Intravenosas en Benalmádena",
+    "descripcion": "Refuerza tu energía y recuperación con vitaminas intravenosas (IV drip) en Clínica Aroma Benalmádena. Tratamiento personalizado. "
   }
 ]
