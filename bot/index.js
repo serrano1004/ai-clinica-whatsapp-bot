@@ -4,8 +4,25 @@ const qrcode = require('qrcode-terminal');
 const { generarRespuesta } = require('../services/gptService');
 const { actualizarOfertasDesdeTexto } = require('../services/dataService');
 
+
 const ENABLE_CHANNEL_SYNC = process.env.ENABLE_CHANNEL_SYNC === 'true';
 const CHANNEL_PHONE = process.env.CHANNEL_PHONE;
+
+// Memoria de conversación por usuario
+const historialPorUsuario = {};
+
+// Frases que indican intención de reserva (más estricto)
+const frasesReserva = [
+  'quiero reservar',
+  'quiero una cita',
+  'reservar',
+  'cita',
+  'agendar',
+  'quiero agendar',
+  'quiero pedir cita', 
+  'resérvame con', 
+  'reservame con'
+];
 
 console.log('🟡 Iniciando el bot...');
 
@@ -17,6 +34,10 @@ const client = new Client({
   }
 });
 
+console.log('🔵 Cliente de WhatsApp creado. Esperando conexión...');
+client.initialize();
+
+
 client.on('qr', qr => {
   console.log('🟢 Escanea este código QR para conectar WhatsApp:');
   qrcode.generate(qr, { small: true });
@@ -25,6 +46,7 @@ client.on('qr', qr => {
 client.on('authenticated', () => console.log('🔐 Autenticado correctamente.'));
 client.on('auth_failure', msg => console.error('❌ Error de autenticación:', msg));
 client.on('ready', () => console.log('🤖 Bot conectado a WhatsApp!'));
+
 
 client.on('message', async msg => {
   if (msg.fromMe || msg.isStatus || msg.type !== 'chat') return;
@@ -51,9 +73,45 @@ client.on('message', async msg => {
     return;
   }
 
+  // Guardar historial de conversación por usuario
+  if (!historialPorUsuario[numeroRemitente]) {
+    historialPorUsuario[numeroRemitente] = [];
+  }
+  historialPorUsuario[numeroRemitente].push({
+    role: 'user',
+    content: msg.body
+  });
+
+  // Detectar intención de reserva
+  const textoMinuscula = msg.body.toLowerCase();
+  const esReserva = frasesReserva.some(f => textoMinuscula.includes(f));
+
   console.log(`📨 Mensaje de ${msg.from}: ${msg.body}`);
   try {
-    const respuesta = await generarRespuesta(msg.body);
+    if (esReserva) {
+      // Limpiar historial y marcar para no seguir la conversación
+      delete historialPorUsuario[numeroRemitente];
+      
+      // Mensaje amable al cliente
+      await msg.reply('¡Perfecto! En un momento te atendemos para concretar los detalles 😊');
+      
+      // Notificación silenciosa a recepción
+      const mensajeRecepcion = `🔔 *Nueva solicitud de cita*\n\n`
+        + `📱 Cliente: ${numeroRemitente}\n`
+        + `💬 Último mensaje: "${msg.body}"\n\n`
+        + `Por favor, continúa la conversación con el cliente.`;
+      
+      // Si tienes un grupo de recepción, usa su ID aquí
+      const chatRecepcion = process.env.RECEPTION_GROUP_ID || msg.from;
+      await client.sendMessage(chatRecepcion, mensajeRecepcion);
+      return;
+    }
+    // Enviar historial al generador de respuesta
+    const respuesta = await generarRespuesta(msg.body, historialPorUsuario[numeroRemitente]);
+    historialPorUsuario[numeroRemitente].push({
+      role: 'assistant',
+      content: respuesta
+    });
     await msg.reply(respuesta);
   } catch (err) {
     console.error('❌ Error al generar respuesta:', err);
