@@ -13,7 +13,7 @@ Asistente inteligente para clínicas estéticas vía WhatsApp. Responde como una
 ---
 
 ## 🧱 Estructura del proyecto
-
+```json
 ai-clinica-whatsapp-bot/
 ├── bot/
 │   └── index.js
@@ -27,7 +27,7 @@ ai-clinica-whatsapp-bot/
 ├── .gitignore
 ├── package.json
 ├── README.md
-
+```
 
 ## Variables por clínica
 
@@ -73,4 +73,5 @@ Ejemplo de mensaje para el canal de la comunidad:
 Promo Verano: 15% en limpieza facial durante junio.
 Depilación Pack: Compra 4 sesiones, recibe 1 gratis.
 Mes de la Juventud: Descuento en ácido hialurónico.
+
 ```
